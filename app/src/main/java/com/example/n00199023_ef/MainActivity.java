@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.n00199023_ef.adapters.CuentasAdapter;
 import com.example.n00199023_ef.entities.Cuenta;
@@ -68,6 +69,12 @@ public class MainActivity extends AppCompatActivity {
     }
     public void crearCuenta(View view){
         Intent intent = new Intent(getApplicationContext(), CrearCuentaActivity.class);
+        startActivity(intent);
+    }
+    public void sincronizarCuentas(View view){
+        Toast.makeText(getApplicationContext(), "Cuentas Sincronizadas", Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
     }
 }

@@ -19,6 +19,20 @@
         android:theme="@style/Theme.N00199023_EF"
         tools:targetApi="31">
         <activity
+            android:name=".MostrarMovimientoActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
+            android:name=".SincronizarActivity"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".RegistrarMovimientoActivity"
             android:exported="false">
             <meta-data

@@ -13,45 +13,53 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.n00199023_ef.DetalleCuentaActivity;
 import com.example.n00199023_ef.R;
 import com.example.n00199023_ef.entities.Cuenta;
+import com.example.n00199023_ef.entities.Movimiento;
 import com.google.gson.Gson;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class CuentasAdapter extends RecyclerView.Adapter {
+public class MovimientosAdapter extends RecyclerView.Adapter{
 
-    List<Cuenta> data;
+    List<Movimiento> data;
 
-    public CuentasAdapter(List<Cuenta> data){
+    public MovimientosAdapter(List<Movimiento> data){
         this.data = data;
     }
-
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         LayoutInflater inflater = LayoutInflater.from(parent.getContext());
 
-        View itemView = inflater.inflate(R.layout.item_cuentas, parent, false);
+        View itemView = inflater.inflate(R.layout.item_movimientos, parent, false);
 
-        return new CuentasViewHolder(itemView);
+        return new MovimientosViewHolder(itemView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull RecyclerView.ViewHolder holder, int position) {
 
-        Cuenta cuenta = data.get(position);
+        Movimiento movimiento = data.get(position);
 
-        TextView tvNombrecuenta = holder.itemView.findViewById(R.id.tvNombrecuenta);
-        tvNombrecuenta.setText(data.get(position).nombre);
+        TextView tvTipo = holder.itemView.findViewById(R.id.tvTipo);
+        tvTipo.setText(data.get(position).tipo);
 
-        ImageView ivCuenta = holder.itemView.findViewById(R.id.ivCuenta);
-        ivCuenta.setImageResource(R.drawable.ic_launcher_background);
+        TextView tvMonto = holder.itemView.findViewById(R.id.tvMonto);
+        tvMonto.setText(data.get(position).monto);
+
+        TextView tvMotivo = holder.itemView.findViewById(R.id.tvMotivo);
+        tvMotivo.setText(data.get(position).motivo);
+
+        TextView tvURL = holder.itemView.findViewById(R.id.tvURL);
+        tvURL.setText(data.get(position).url);
+
+        ImageView ivMovimiento = holder.itemView.findViewById(R.id.ivMovimiento);
+        ivMovimiento.setImageResource(R.drawable.ic_launcher_foreground);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(holder.itemView.getContext(), DetalleCuentaActivity.class);
-                intent.putExtra("CUENTA_DATA", new Gson().toJson(cuenta));
+                intent.putExtra("MOVIMIENTO_DATA", new Gson().toJson(movimiento));
                 holder.itemView.getContext().startActivity(intent);
             }
         });
@@ -62,8 +70,8 @@ public class CuentasAdapter extends RecyclerView.Adapter {
         return data.size();
     }
 
-    static class CuentasViewHolder extends RecyclerView.ViewHolder {
-        public CuentasViewHolder(@NonNull View itemView) {
+    static class MovimientosViewHolder extends RecyclerView.ViewHolder {
+        public MovimientosViewHolder(@NonNull View itemView) {
             super(itemView);
         }
     }

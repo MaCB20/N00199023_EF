@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.example.n00199023_ef.adapters.CuentasAdapter;
 import com.example.n00199023_ef.entities.Cuenta;
@@ -46,6 +47,7 @@ public class MostrarCuentas extends AppCompatActivity {
             @Override
             public void onFailure(Call<List<Cuenta>> call, Throwable t) {
 
+                Log.i("Test");
             }
         });
     }
